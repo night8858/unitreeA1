@@ -1,0 +1,79 @@
+{
+  "C_Cpp_Runner.cCompilerPath": "gcc",
+  "C_Cpp_Runner.cppCompilerPath": "g++",
+  "C_Cpp_Runner.debuggerPath": "gdb",
+  "C_Cpp_Runner.cStandard": "",
+  "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "",
+  "C_Cpp_Runner.useMsvc": false,
+  "C_Cpp_Runner.warnings": [
+    "-Wall",
+    "-Wextra",
+    "-Wpedantic",
+    "-Wshadow",
+    "-Wformat=2",
+    "-Wcast-align",
+    "-Wconversion",
+    "-Wsign-conversion",
+    "-Wnull-dereference"
+  ],
+  "C_Cpp_Runner.msvcWarnings": [
+    "/W4",
+    "/permissive-",
+    "/w14242",
+    "/w14287",
+    "/w14296",
+    "/w14311",
+    "/w14826",
+    "/w44062",
+    "/w44242",
+    "/w14905",
+    "/w14906",
+    "/w14263",
+    "/w44265",
+    "/w14928"
+  ],
+  "C_Cpp_Runner.enableWarnings": true,
+  "C_Cpp_Runner.warningsAsError": false,
+  "C_Cpp_Runner.compilerArgs": [],
+  "C_Cpp_Runner.linkerArgs": [],
+  "C_Cpp_Runner.includePaths": [
+    "d:\\cubeMX f\\rs485\\Core\\Inc",
+    "d:\\cubeMX f\\rs485\\Drivers\\STM32F4xx_HAL_Driver\\Inc",
+    "d:\\cubeMX f\\rs485\\Drivers\\STM32F4xx_HAL_Driver\\Inc\\Legacy",
+    "d:\\cubeMX f\\rs485\\Drivers\\CMSIS\\Device\\ST\\STM32F4xx\\Include",
+    "d:\\cubeMX f\\rs485\\Drivers\\CMSIS\\Include",
+    "d:\\cubeMX f\\rs485\\MDK-ARM\\uintree_a1",
+    "D:\\D P J\\ARM\\ARMCC\\include",
+    "D:\\D P J\\ARM\\ARMCC\\include\\rw",
+    "d:\\cubeMX f\\rs485\\MDK-ARM",
+    "d:\\cubeMX f\\rs485\\Core\\Src",
+    "d:\\cubeMX f\\rs485\\Drivers\\STM32F4xx_HAL_Driver\\Src"
+  ],
+  "C_Cpp_Runner.includeSearch": [
+    "*",
+    "**/*"
+  ],
+  "C_Cpp_Runner.excludeSearch": [
+    "**/build",
+    "**/build/**",
+    "**/.*",
+    "**/.*/**",
+    "**/.vscode",
+    "**/.vscode/**"
+  ],
+  "C_Cpp_Runner.useAddressSanitizer": false,
+  "C_Cpp_Runner.useUndefinedSanitizer": false,
+  "C_Cpp_Runner.useLeakSanitizer": false,
+  "C_Cpp_Runner.showCompilationTime": false,
+  "C_Cpp_Runner.useLinkTimeOptimization": false,
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "files.associations": {
+    "bmi088_rx.h": "c",
+    "atomic": "c",
+    "*.tcc": "c",
+    "cstdint": "c",
+    "random": "c",
+    "string.h": "c"
+  }
+}

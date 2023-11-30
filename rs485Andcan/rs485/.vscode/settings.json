@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "*.m": "matlab",
+        "*.mlx": "matlab",
+        "bmi088_rx.h": "c",
+        "can.h": "c"
+    }
+}
