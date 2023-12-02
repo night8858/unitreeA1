@@ -29,7 +29,7 @@
 #include "unitreeA1_cmd.h"
 #include <string.h>
 #include <stdio.h>
-// #include "bsp_can.h"
+#include "bsp_can.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,6 +98,9 @@ int main(void)
   MX_USART6_UART_Init();
   /* USER CODE BEGIN 2 */
   CAN_InitArgument();
+  CAN_send_data_2(&hcan2, 0x09, 1, 0);
+  CAN_send_data_2(&hcan2, 0x09, 1, 0);
+  CAN_send_data_2(&hcan2, 0x09, 1, 0); // 向0x09广播校准指令
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -106,7 +109,7 @@ int main(void)
   {
     //modfiy_cmd(&cmd_left,0x00,3.1415*9.1*4,0.2,3);
     //unitreeA1_rxtx(&huart1);
-    
+    // CAN_send_data_2(&hcan2, 0x09, 0, 0);
     modfiy_cmd(&cmd_left,1,0.1,2);
     unitreeA1_rxtx(&huart1, 0x00);
     HAL_Delay(1000);
@@ -140,6 +143,7 @@ void SystemClock_Config(void)
   */
   __HAL_RCC_PWR_CLK_ENABLE();
   __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
@@ -155,6 +159,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+
   /** Initializes the CPU, AHB and APB buses clocks
   */
   RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
@@ -205,5 +210,3 @@ void assert_failed(uint8_t *file, uint32_t line)
   /* USER CODE END 6 */
 }
 #endif /* USE_FULL_ASSERT */
-
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

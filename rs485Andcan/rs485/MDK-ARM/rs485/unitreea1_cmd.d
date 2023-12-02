@@ -30,10 +30,9 @@ rs485\unitreea1_cmd.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_flash_r
 rs485\unitreea1_cmd.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr.h
 rs485\unitreea1_cmd.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 rs485\unitreea1_cmd.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
-rs485\unitreea1_cmd.o: ..\modules\unitreeMotor\include\motor_msg.h
-rs485\unitreea1_cmd.o: ..\modules\unitreeMotor\include\motor_msg.h
+rs485\unitreea1_cmd.o: ../modules/unitreeMotor/include/motor_msg.h
+rs485\unitreea1_cmd.o: ../modules/unitreeMotor/include/motor_msg.h
 rs485\unitreea1_cmd.o: D:\Program Files\keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rs485\unitreea1_cmd.o: D:\Program Files\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 rs485\unitreea1_cmd.o: ../Core/Inc/usart.h
-rs485\unitreea1_cmd.o: .\RTE\_rs485\RTE_Components.h
 rs485\unitreea1_cmd.o: ..\modules\unitreeMotor\unitreeA1_cmd.h

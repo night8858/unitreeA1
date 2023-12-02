@@ -32,4 +32,4 @@ rs485\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_pwr_ex.h
 rs485\bsp_can.o: ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
 rs485\bsp_can.o: ../Core/Inc/can.h
 rs485\bsp_can.o: ../Core/Inc/main.h
-rs485\bsp_can.o: ..\modules\IMU\BMI088_Rx.h
+rs485\bsp_can.o: ../modules/IMU/BMI088_Rx.h

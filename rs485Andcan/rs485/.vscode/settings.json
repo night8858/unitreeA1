@@ -3,6 +3,7 @@
         "*.m": "matlab",
         "*.mlx": "matlab",
         "bmi088_rx.h": "c",
-        "can.h": "c"
+        "can.h": "c",
+        "bsp_can.h": "c"
     }
 }
