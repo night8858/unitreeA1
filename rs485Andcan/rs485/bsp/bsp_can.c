@@ -116,6 +116,11 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef *hcan)
                 BMI088_data_handle(can2_rx_message.Data, &right_down_088.Roll, &right_down_088.Encoder);
             }
             break;
+            case 0x09:
+            {
+                BMI088_data_handle(can2_rx_message.Data, &right_down_088.Roll, &right_down_088.Encoder);
+            }
+            break;
         }
 	  
     }

@@ -34,8 +34,10 @@ rs485\main.o: ../Core/Inc/can.h
 rs485\main.o: ../Core/Inc/dma.h
 rs485\main.o: ../Core/Inc/usart.h
 rs485\main.o: ../Core/Inc/gpio.h
-rs485\main.o: ..\modules\unitreeMotor\unitreeA1_cmd.h
-rs485\main.o: ..\modules\unitreeMotor\include\motor_msg.h
-rs485\main.o: ..\modules\unitreeMotor\include\motor_msg.h
+rs485\main.o: ../modules/unitreeMotor/unitreeA1_cmd.h
+rs485\main.o: ../modules/unitreeMotor/include/motor_msg.h
+rs485\main.o: ../modules/unitreeMotor/include/motor_msg.h
 rs485\main.o: D:\Program Files\keil_v5\ARM\ARMCC\Bin\..\include\string.h
 rs485\main.o: D:\Program Files\keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+rs485\main.o: ../bsp/bsp_can.h
+rs485\main.o: ../modules/IMU/BMI088_Rx.h

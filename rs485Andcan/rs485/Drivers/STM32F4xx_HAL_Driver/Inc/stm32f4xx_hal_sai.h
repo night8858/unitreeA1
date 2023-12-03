@@ -6,13 +6,12 @@
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
-  * All rights reserved.</center></h2>
+  * Copyright (c) 2017 STMicroelectronics.
+  * All rights reserved.
   *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
+  * This software is licensed under terms that can be found in the LICENSE file
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
@@ -22,7 +21,7 @@
 #define __STM32F4xx_HAL_SAI_H
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
@@ -56,7 +55,7 @@ typedef enum
   HAL_SAI_STATE_BUSY_RX    = 0x22U,  /*!< Data reception process is ongoing                  */
   HAL_SAI_STATE_TIMEOUT    = 0x03U,  /*!< SAI timeout state                                  */
   HAL_SAI_STATE_ERROR      = 0x04U   /*!< SAI error state                                    */
-}HAL_SAI_StateTypeDef;
+} HAL_SAI_StateTypeDef;
 
 /**
   * @brief  SAI Callback prototype
@@ -118,7 +117,7 @@ typedef struct
   uint32_t TriState;            /*!< Specifies the companding mode type.
                                      This parameter can be a value of @ref SAI_TRIState_Management             */
 
-  /* This part of the structure is automatically filled if your are using the high level intialisation
+  /* This part of the structure is automatically filled if your are using the high level initialisation
      function HAL_SAI_InitProtocol                                                                             */
 
   uint32_t Protocol;        /*!< Specifies the SAI Block protocol.
@@ -132,13 +131,14 @@ typedef struct
 
   uint32_t ClockStrobing;   /*!< Specifies the SAI Block clock strobing edge sensitivity.
                                  This parameter can be a value of @ref SAI_Block_Clock_Strobing                */
-}SAI_InitTypeDef;
+} SAI_InitTypeDef;
 /**
   * @}
   */
 
 /** @defgroup SAI_Frame_Structure_definition SAI Frame Structure definition
   * @brief  SAI Frame Init structure definition
+  * @note   For SPDIF and AC97 protocol, these parameters are not used (set by hardware).
   * @{
   */
 typedef struct
@@ -162,13 +162,15 @@ typedef struct
 
   uint32_t FSOffset;           /*!< Specifies the Frame synchronization Offset.
                                     This parameter can be a value of @ref SAI_Block_FS_Offset                 */
-}SAI_FrameInitTypeDef;
+} SAI_FrameInitTypeDef;
 /**
   * @}
   */
 
 /** @defgroup SAI_Slot_Structure_definition SAI Slot Structure definition
   * @brief   SAI Block Slot Init Structure definition
+  * @note    For SPDIF protocol, these parameters are not used (set by hardware).
+  * @note    For AC97 protocol, only SlotActive parameter is used (the others are set by hardware).
   * @{
   */
 typedef struct
@@ -184,7 +186,7 @@ typedef struct
 
   uint32_t SlotActive;      /*!< Specifies the slots in audio frame that will be activated.
                                  This parameter can be a value of @ref SAI_Block_Slot_Active            */
-}SAI_SlotInitTypeDef;
+} SAI_SlotInitTypeDef;
 /**
   * @}
   */
@@ -891,4 +893,3 @@ uint32_t HAL_SAI_GetError(SAI_HandleTypeDef *hsai);
 
 #endif /* __STM32F4xx_HAL_SAI_H */
 
-/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
