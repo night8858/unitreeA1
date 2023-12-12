@@ -19,8 +19,12 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "cmsis_os.h"
 #include "can.h"
 #include "dma.h"
+#include "i2c.h"
+#include "spi.h"
+#include "tim.h"
 #include "usart.h"
 #include "gpio.h"
 
@@ -30,6 +34,8 @@
 #include <string.h>
 #include <stdio.h>
 #include "bsp_can.h"
+#include "struct_typedef.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +60,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+void MX_FREERTOS_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -96,32 +103,24 @@ int main(void)
   MX_CAN2_Init();
   MX_USART1_UART_Init();
   MX_USART6_UART_Init();
+  MX_SPI1_Init();
+  MX_I2C3_Init();
+  MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
   CAN_InitArgument();
-  CAN_send_data_2(&hcan2, 0x09, 1, 0);
-  CAN_send_data_2(&hcan2, 0x09, 1, 0);
-  CAN_send_data_2(&hcan2, 0x09, 1, 0); // 向0x09广播校准指令
   /* USER CODE END 2 */
 
+  /* Call init function for freertos objects (in freertos.c) */
+  MX_FREERTOS_Init();
+
+  /* Start scheduler */
+  osKernelStart();
+
+  /* We should never get here as control is now taken by the scheduler */
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    //modfiy_cmd(&cmd_left,0x00,3.1415*9.1*4,0.2,3);
-    //unitreeA1_rxtx(&huart1);
-    // CAN_send_data_2(&hcan2, 0x09, 0, 0);
-    modfiy_cmd(&cmd_left,1,0.1,2);
-    unitreeA1_rxtx(&huart1, 0x00);
-    HAL_Delay(1000);
-    modfiy_cmd(&cmd_left,3,0.1,2);
-    unitreeA1_rxtx(&huart1, 0x00);
-    HAL_Delay(1000);
-    modfiy_cmd(&cmd_left,1,0.1,2);
-    unitreeA1_rxtx(&huart1, 0x01);
-    HAL_Delay(1000);
-    modfiy_cmd(&cmd_left,3,0.1,2);
-    unitreeA1_rxtx(&huart1, 0x01);
-    HAL_Delay(1000);
 
     /* USER CODE END WHILE */
 

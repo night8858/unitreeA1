@@ -53,7 +53,7 @@
 /* #define HAL_SRAM_MODULE_ENABLED */
 /* #define HAL_SDRAM_MODULE_ENABLED */
 /* #define HAL_HASH_MODULE_ENABLED */
-/* #define HAL_I2C_MODULE_ENABLED */
+#define HAL_I2C_MODULE_ENABLED
 /* #define HAL_I2S_MODULE_ENABLED */
 /* #define HAL_IWDG_MODULE_ENABLED */
 /* #define HAL_LTDC_MODULE_ENABLED */
@@ -62,8 +62,8 @@
 /* #define HAL_SAI_MODULE_ENABLED */
 /* #define HAL_SD_MODULE_ENABLED */
 /* #define HAL_MMC_MODULE_ENABLED */
-/* #define HAL_SPI_MODULE_ENABLED */
-/* #define HAL_TIM_MODULE_ENABLED */
+#define HAL_SPI_MODULE_ENABLED
+#define HAL_TIM_MODULE_ENABLED
 #define HAL_UART_MODULE_ENABLED
 /* #define HAL_USART_MODULE_ENABLED */
 /* #define HAL_IRDA_MODULE_ENABLED */
@@ -148,7 +148,7 @@
   * @brief This is the HAL system configuration section
   */
 #define  VDD_VALUE		      3300U /*!< Value of VDD in mv */
-#define  TICK_INT_PRIORITY            0U   /*!< tick interrupt priority */
+#define  TICK_INT_PRIORITY            15U   /*!< tick interrupt priority */
 #define  USE_RTOS                     0U
 #define  PREFETCH_ENABLE              1U
 #define  INSTRUCTION_CACHE_ENABLE     1U
@@ -222,7 +222,7 @@
 /* Section 2: PHY configuration section */
 
 /* DP83848_PHY_ADDRESS Address*/
-#define DP83848_PHY_ADDRESS           0x01U
+#define DP83848_PHY_ADDRESS
 /* PHY Reset delay these values are based on a 1 ms Systick interrupt*/
 #define PHY_RESET_DELAY                 0x000000FFU
 /* PHY Configuration delay */
@@ -252,10 +252,10 @@
 #define PHY_JABBER_DETECTION            ((uint16_t)0x0002U)  /*!< Jabber condition detected            */
 
 /* Section 4: Extended PHY Registers */
-#define PHY_SR                          ((uint16_t)0x10U)    /*!< PHY status register Offset                      */
+#define PHY_SR                          ((uint16_t))    /*!< PHY status register Offset                      */
 
-#define PHY_SPEED_STATUS                ((uint16_t)0x0002U)  /*!< PHY Speed mask                                  */
-#define PHY_DUPLEX_STATUS               ((uint16_t)0x0004U)  /*!< PHY Duplex mask                                 */
+#define PHY_SPEED_STATUS                ((uint16_t))  /*!< PHY Speed mask                                  */
+#define PHY_DUPLEX_STATUS               ((uint16_t))  /*!< PHY Duplex mask                                 */
 
 /* ################## SPI peripheral configuration ########################## */
 

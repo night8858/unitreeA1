@@ -50,21 +50,21 @@ uint32_t crc32_core(uint32_t *ptr, uint32_t len)
     return CRC32;
 }
 
-void modfiy_cmd(motor_send_t *send, float Pos, float KP, float KW)
+void modfiy_cmd(motor_send_t *send,uint8_t id, float Pos, float KP, float KW)
 {
 
     send->hex_len = 34;
 
     send->mode = 10;
-
+	send->id = id;
     send->K_P = KP;
     send->K_W = KW;
-    send->Pos = 6.2830*9.1*2*Pos;
+    send->Pos = 6.2832*9.1*2*Pos;
     send->W = 0;
     send->T = 0.0;
 }
 
-void unitreeA1_rxtx(UART_HandleTypeDef *huart, uint8_t id)
+void unitreeA1_rxtx(UART_HandleTypeDef *huart)
 {
 
     if (huart == &huart1)
@@ -77,7 +77,7 @@ void unitreeA1_rxtx(UART_HandleTypeDef *huart, uint8_t id)
         // 此处为左腿电机结构体//
         cmd_left.motor_send_data.head.start[0] = 0xFE;
         cmd_left.motor_send_data.head.start[1] = 0xEE;
-        cmd_left.motor_send_data.head.motorID = id;
+        cmd_left.motor_send_data.head.motorID = cmd_left.id;
         cmd_left.motor_send_data.head.reserved = 0x00;
 
         cmd_left.motor_send_data.Mdata.mode = cmd_left.mode;
@@ -98,7 +98,7 @@ void unitreeA1_rxtx(UART_HandleTypeDef *huart, uint8_t id)
 
         memcpy(A1cmd_left, &cmd_left.motor_send_data, 34);
 
-        HAL_UART_Transmit(&huart1, A1cmd_left, 34,0x03);
+        HAL_UART_Transmit_DMA(&huart1, A1cmd_left, 34);
         HAL_Delay(10);
         HAL_UART_Receive_DMA(&huart1, Date, 78);
 
@@ -147,7 +147,7 @@ void unitreeA1_rxtx(UART_HandleTypeDef *huart, uint8_t id)
         // 此处为右腿一号电机结构体//
         cmd_right.motor_send_data.head.start[0] = 0xFE;
         cmd_right.motor_send_data.head.start[1] = 0xEE;
-        cmd_right.motor_send_data.head.motorID = id;
+        cmd_right.motor_send_data.head.motorID = cmd_left.id;
         cmd_right.motor_send_data.head.reserved = 0x00;
 
         cmd_right.motor_send_data.Mdata.mode = cmd_right.mode;
@@ -206,8 +206,4 @@ void unitreeA1_rxtx(UART_HandleTypeDef *huart, uint8_t id)
             id02_right_date.Pos = Date_right.Pos;
         }
     }
-}
-
-void Get_Now_T(void)
-{
 }

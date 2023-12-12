@@ -6,12 +6,13 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2016 STMicroelectronics.
-  * All rights reserved.
+  * <h2><center>&copy; Copyright (c) 2016 STMicroelectronics.
+  * All rights reserved.</center></h2>
   *
-  * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * This software component is licensed by ST under BSD 3-Clause license,
+  * the "License"; You may not use this file except in compliance with the
+  * License. You may obtain a copy of the License at:
+  *                        opensource.org/licenses/BSD-3-Clause
   *
   ******************************************************************************
   */
@@ -358,12 +359,11 @@ typedef struct
   */
 #define __LL_USART_DIV_SAMPLING8_100(__PERIPHCLK__, __BAUDRATE__)      ((uint32_t)((((uint64_t)(__PERIPHCLK__))*25)/(2*((uint64_t)(__BAUDRATE__)))))
 #define __LL_USART_DIVMANT_SAMPLING8(__PERIPHCLK__, __BAUDRATE__)      (__LL_USART_DIV_SAMPLING8_100((__PERIPHCLK__), (__BAUDRATE__))/100)
-#define __LL_USART_DIVFRAQ_SAMPLING8(__PERIPHCLK__, __BAUDRATE__)      ((((__LL_USART_DIV_SAMPLING8_100((__PERIPHCLK__), (__BAUDRATE__)) - (__LL_USART_DIVMANT_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) * 100)) * 8)\
-                                                                         + 50) / 100)
+#define __LL_USART_DIVFRAQ_SAMPLING8(__PERIPHCLK__, __BAUDRATE__)      ((((__LL_USART_DIV_SAMPLING8_100((__PERIPHCLK__), (__BAUDRATE__)) - (__LL_USART_DIVMANT_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) * 100)) * 8) + 50) / 100)
 /* UART BRR = mantissa + overflow + fraction
             = (UART DIVMANT << 4) + ((UART DIVFRAQ & 0xF8) << 1) + (UART DIVFRAQ & 0x07) */
 #define __LL_USART_DIV_SAMPLING8(__PERIPHCLK__, __BAUDRATE__)             (((__LL_USART_DIVMANT_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) << 4) + \
-                                                                            ((__LL_USART_DIVFRAQ_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) & 0xF8) << 1)) + \
+                                                                           ((__LL_USART_DIVFRAQ_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) & 0xF8) << 1)) + \
                                                                            (__LL_USART_DIVFRAQ_SAMPLING8((__PERIPHCLK__), (__BAUDRATE__)) & 0x07))
 
 /**
@@ -375,12 +375,11 @@ typedef struct
   */
 #define __LL_USART_DIV_SAMPLING16_100(__PERIPHCLK__, __BAUDRATE__)     ((uint32_t)((((uint64_t)(__PERIPHCLK__))*25)/(4*((uint64_t)(__BAUDRATE__)))))
 #define __LL_USART_DIVMANT_SAMPLING16(__PERIPHCLK__, __BAUDRATE__)     (__LL_USART_DIV_SAMPLING16_100((__PERIPHCLK__), (__BAUDRATE__))/100)
-#define __LL_USART_DIVFRAQ_SAMPLING16(__PERIPHCLK__, __BAUDRATE__)     ((((__LL_USART_DIV_SAMPLING16_100((__PERIPHCLK__), (__BAUDRATE__)) - (__LL_USART_DIVMANT_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) * 100)) * 16)\
-                                                                         + 50) / 100)
+#define __LL_USART_DIVFRAQ_SAMPLING16(__PERIPHCLK__, __BAUDRATE__)     ((((__LL_USART_DIV_SAMPLING16_100((__PERIPHCLK__), (__BAUDRATE__)) - (__LL_USART_DIVMANT_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) * 100)) * 16) + 50) / 100)
 /* USART BRR = mantissa + overflow + fraction
             = (USART DIVMANT << 4) + (USART DIVFRAQ & 0xF0) + (USART DIVFRAQ & 0x0F) */
 #define __LL_USART_DIV_SAMPLING16(__PERIPHCLK__, __BAUDRATE__)            (((__LL_USART_DIVMANT_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) << 4) + \
-                                                                            (__LL_USART_DIVFRAQ_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) & 0xF0)) + \
+                                                                           (__LL_USART_DIVFRAQ_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) & 0xF0)) + \
                                                                            (__LL_USART_DIVFRAQ_SAMPLING16((__PERIPHCLK__), (__BAUDRATE__)) & 0x0F))
 
 /**
@@ -445,7 +444,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabled(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDirectionRx(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_RE);
+  SET_BIT(USARTx->CR1, USART_CR1_RE);
 }
 
 /**
@@ -456,7 +455,7 @@ __STATIC_INLINE void LL_USART_EnableDirectionRx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDirectionRx(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_RE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_RE);
 }
 
 /**
@@ -467,7 +466,7 @@ __STATIC_INLINE void LL_USART_DisableDirectionRx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDirectionTx(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TE);
+  SET_BIT(USARTx->CR1, USART_CR1_TE);
 }
 
 /**
@@ -478,7 +477,7 @@ __STATIC_INLINE void LL_USART_EnableDirectionTx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDirectionTx(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TE);
 }
 
 /**
@@ -496,7 +495,7 @@ __STATIC_INLINE void LL_USART_DisableDirectionTx(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_SetTransferDirection(USART_TypeDef *USARTx, uint32_t TransferDirection)
 {
-  ATOMIC_MODIFY_REG(USARTx->CR1, USART_CR1_RE | USART_CR1_TE, TransferDirection);
+  MODIFY_REG(USARTx->CR1, USART_CR1_RE | USART_CR1_TE, TransferDirection);
 }
 
 /**
@@ -1044,8 +1043,8 @@ __STATIC_INLINE void LL_USART_SetBaudRate(USART_TypeDef *USARTx, uint32_t Periph
   */
 __STATIC_INLINE uint32_t LL_USART_GetBaudRate(USART_TypeDef *USARTx, uint32_t PeriphClk, uint32_t OverSampling)
 {
-  uint32_t usartdiv = 0x0U;
-  uint32_t brrresult = 0x0U;
+  register uint32_t usartdiv = 0x0U;
+  register uint32_t brrresult = 0x0U;
 
   usartdiv = USARTx->BRR;
 
@@ -2023,7 +2022,7 @@ __STATIC_INLINE void LL_USART_ClearFlag_nCTS(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_IDLE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_IDLEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
 /**
@@ -2034,7 +2033,7 @@ __STATIC_INLINE void LL_USART_EnableIT_IDLE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_RXNE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_RXNEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_RXNEIE);
 }
 
 /**
@@ -2045,7 +2044,7 @@ __STATIC_INLINE void LL_USART_EnableIT_RXNE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_TC(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TCIE);
+  SET_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
 /**
@@ -2056,7 +2055,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TC(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_TXE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_TXEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_TXEIE);
 }
 
 /**
@@ -2067,7 +2066,7 @@ __STATIC_INLINE void LL_USART_EnableIT_TXE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_PE(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR1, USART_CR1_PEIE);
+  SET_BIT(USARTx->CR1, USART_CR1_PEIE);
 }
 
 /**
@@ -2095,7 +2094,7 @@ __STATIC_INLINE void LL_USART_EnableIT_LBD(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_ERROR(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_EIE);
+  SET_BIT(USARTx->CR3, USART_CR3_EIE);
 }
 
 /**
@@ -2108,7 +2107,7 @@ __STATIC_INLINE void LL_USART_EnableIT_ERROR(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableIT_CTS(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_CTSIE);
+  SET_BIT(USARTx->CR3, USART_CR3_CTSIE);
 }
 
 /**
@@ -2119,7 +2118,7 @@ __STATIC_INLINE void LL_USART_EnableIT_CTS(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_IDLE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_IDLEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_IDLEIE);
 }
 
 /**
@@ -2130,7 +2129,7 @@ __STATIC_INLINE void LL_USART_DisableIT_IDLE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_RXNE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_RXNEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_RXNEIE);
 }
 
 /**
@@ -2141,7 +2140,7 @@ __STATIC_INLINE void LL_USART_DisableIT_RXNE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_TC(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TCIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TCIE);
 }
 
 /**
@@ -2152,7 +2151,7 @@ __STATIC_INLINE void LL_USART_DisableIT_TC(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_TXE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_TXEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_TXEIE);
 }
 
 /**
@@ -2163,7 +2162,7 @@ __STATIC_INLINE void LL_USART_DisableIT_TXE(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_PE(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR1, USART_CR1_PEIE);
+  CLEAR_BIT(USARTx->CR1, USART_CR1_PEIE);
 }
 
 /**
@@ -2191,7 +2190,7 @@ __STATIC_INLINE void LL_USART_DisableIT_LBD(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_ERROR(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_EIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_EIE);
 }
 
 /**
@@ -2204,7 +2203,7 @@ __STATIC_INLINE void LL_USART_DisableIT_ERROR(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableIT_CTS(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_CTSIE);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_CTSIE);
 }
 
 /**
@@ -2315,7 +2314,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledIT_CTS(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDMAReq_RX(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_DMAR);
+  SET_BIT(USARTx->CR3, USART_CR3_DMAR);
 }
 
 /**
@@ -2326,7 +2325,7 @@ __STATIC_INLINE void LL_USART_EnableDMAReq_RX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDMAReq_RX(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_DMAR);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_DMAR);
 }
 
 /**
@@ -2348,7 +2347,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledDMAReq_RX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_EnableDMAReq_TX(USART_TypeDef *USARTx)
 {
-  ATOMIC_SET_BIT(USARTx->CR3, USART_CR3_DMAT);
+  SET_BIT(USARTx->CR3, USART_CR3_DMAT);
 }
 
 /**
@@ -2359,7 +2358,7 @@ __STATIC_INLINE void LL_USART_EnableDMAReq_TX(USART_TypeDef *USARTx)
   */
 __STATIC_INLINE void LL_USART_DisableDMAReq_TX(USART_TypeDef *USARTx)
 {
-  ATOMIC_CLEAR_BIT(USARTx->CR3, USART_CR3_DMAT);
+  CLEAR_BIT(USARTx->CR3, USART_CR3_DMAT);
 }
 
 /**
@@ -2383,7 +2382,7 @@ __STATIC_INLINE uint32_t LL_USART_IsEnabledDMAReq_TX(USART_TypeDef *USARTx)
 __STATIC_INLINE uint32_t LL_USART_DMA_GetRegAddr(USART_TypeDef *USARTx)
 {
   /* return address of DR register */
-  return ((uint32_t) &(USARTx->DR));
+  return ((uint32_t) & (USARTx->DR));
 }
 
 /**
@@ -2519,3 +2518,4 @@ void        LL_USART_ClockStructInit(LL_USART_ClockInitTypeDef *USART_ClockInitS
 
 #endif /* __STM32F4xx_LL_USART_H */
 
+/************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

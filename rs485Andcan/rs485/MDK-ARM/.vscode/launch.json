@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "d:/RoboMaster/rc马/电控代码/rs485Andcan/rs485/bsp",
-      "program": "d:/RoboMaster/rc马/电控代码/rs485Andcan/rs485/bsp/build/Debug/outDebug",
+      "cwd": "d:/git/unitreeA1/rs485Andcan/rs485/bsp",
+      "program": "d:/git/unitreeA1/rs485Andcan/rs485/bsp/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
