@@ -1,0 +1,45 @@
+.\objects\unitreea1_cmd.o: ..\Middlewares\unitreeA1_cmd.c
+.\objects\unitreea1_cmd.o: ..\Project\main.h
+.\objects\unitreea1_cmd.o: ..\Project\stm32f4xx.h
+.\objects\unitreea1_cmd.o: ..\CORE\core_cm4.h
+.\objects\unitreea1_cmd.o: D:\D P J\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\unitreea1_cmd.o: ..\CORE\core_cmInstr.h
+.\objects\unitreea1_cmd.o: ..\CORE\core_cmFunc.h
+.\objects\unitreea1_cmd.o: ..\CORE\core_cmSimd.h
+.\objects\unitreea1_cmd.o: ..\Project\system_stm32f4xx.h
+.\objects\unitreea1_cmd.o: ..\Project\stm32f4xx_conf.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_adc.h
+.\objects\unitreea1_cmd.o: ..\Project\stm32f4xx.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_crc.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_dbgmcu.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_dma.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_exti.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_flash.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_gpio.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_i2c.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_iwdg.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_pwr.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_rcc.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_rtc.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_sdio.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_spi.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_syscfg.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_tim.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_usart.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_wwdg.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\misc.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_cryp.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_hash.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_rng.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_can.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_dac.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_dcmi.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_dma2d.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_fmc.h
+.\objects\unitreea1_cmd.o: ..\FWLIB\inc\stm32f4xx_sai.h
+.\objects\unitreea1_cmd.o: ..\Middlewares\motor_msg.h
+.\objects\unitreea1_cmd.o: ..\Middlewares\motor_msg.h
+.\objects\unitreea1_cmd.o: D:\D P J\ARM\ARMCC\Bin\..\include\string.h
+.\objects\unitreea1_cmd.o: D:\D P J\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\unitreea1_cmd.o: ..\Middlewares\unitreeA1_cmd.h
+.\objects\unitreea1_cmd.o: ..\USER\bsp_usart.h
